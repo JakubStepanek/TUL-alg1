@@ -16,38 +16,30 @@ public class cv14 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //IN
+        // IN
+        //Input from user
         Scanner sc = new Scanner(System.in);
         System.out.println("Chcete-li zjistit, zda byl rok přestupný?");
         System.out.print("Zadejte rok: ");
         int yearByUser = sc.nextInt();
+        //const for current year to decide wether year by user was/is/will
         final int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        boolean leap;
+        boolean leap = false;
+
+        // CODE
+        // is year leap ? 
+        leap = (yearByUser % 4 != 0) ? false : (yearByUser % 400 == 0) ? true : (yearByUser % 100 != 0);
         
-        //CODE 
-   
-        leap = (yearByUser % 4 != 0) ? false : (yearByUser % 400 == 0) ? true : (yearByUser % 100 != 0); 
-        //String wasIsWill;
-        //wasIsWill = yearByUser==currentYear ? "je": yearByUser>currentYear ? "bude" : "byl";
-        
-        //OUT
-        System.out.println("Rok " + yearByUser + (leap ? " je" : " není") + " přestupný!");
-        //System.out.println("Rok "+ yearByUser + " " +wasIsWill + " přestupný!");      TODO
-       
+
+        // OUT
+        System.out.println(String.format("Rok %d %s přestupný!", yearByUser , leap ? "je":"není"));
+
+
     }
 }
 
-
-
-
-     /*
-        if (yearByUser % 4 != 0) {
-            leap = false;
-        } else if (yearByUser % 400 == 0) {
-            leap = true;
-        } else if (yearByUser % 100 == 0) {
-            leap = false;
-        } else {
-            leap = true;
-        }*/
-
+/*
+ * if (yearByUser % 4 != 0) { leap = false; } else if (yearByUser % 400 == 0) {
+ * leap = true; } else if (yearByUser % 100 == 0) { leap = false; } else { leap
+ * = true; }
+ */
