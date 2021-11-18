@@ -22,6 +22,43 @@ public class PlayingWithFor {
         for (int i = 0; i < n; i++) {
             System.out.print("*");
         }
-    }
+        System.out.println("");
 
+        System.out.println("Square");
+        for (int row = 1; row <= n; row++) {
+            for (int i = 0; i < n; i++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        System.out.println("Rectangle");
+        int countOfRows = 10;
+        for (int row = 1; row <= countOfRows; row++) {
+            for (int i = 0; i < n; i++) {
+                System.out.print("* ");
+            }
+        }
+        System.out.println();
+        System.out.println("Triangle");
+        for (int row = 1; row <= n; row++) {
+            for (int i = 1; i <= row; i++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        System.out.println("Better Triangle");
+        for (int row = 1; row <= n; row++) {
+            // Spaces
+            for (int i = 1; i <= n - row; i++) {
+                System.out.print(" ");
+            }
+            for (int i = 1; i <= row; i++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+
+        }
+    }
 }
