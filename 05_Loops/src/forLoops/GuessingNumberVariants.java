@@ -22,11 +22,11 @@ public class GuessingNumberVariants {
         System.out.println("Mysli si číslo v rozsahu od " + BinarySearch.min + " do " + BinarySearch.max);
         boolean guessed = false;
 
-        int max = BinarySearch.max;
-        int min = BinarySearch.min;
+        // int max = BinarySearch.max;
+        // int min = BinarySearch.min;
 
         while (!guessed) {
-            int mid = (max + min) / 2;
+            int mid = (BinarySearch.max + BinarySearch.min) / 2;
             System.out.format("Je tvoje číslo %d ? \n", mid);
             System.out.println("+: Moje číslo je VĚTŠÍ.");
             System.out.println("-: Moje číslo je MENŠÍ.");
@@ -34,10 +34,10 @@ public class GuessingNumberVariants {
             char choice = BinarySearch.sc.next().charAt(0);
             switch (choice) {
             case '+':
-                min = mid;
+                BinarySearch.min = mid;
                 break;
             case '-':
-                max = mid;
+                BinarySearch.max = mid;
                 break;
             case '=':
                 System.out.println("Tvoje číslo je: " + mid);

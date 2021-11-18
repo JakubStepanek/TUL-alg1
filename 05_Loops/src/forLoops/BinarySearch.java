@@ -30,6 +30,16 @@ public class BinarySearch {
             case 2:
                 GuessingNumberVariants.computerGuesses();
                 break;
+            case 3:
+                System.out.print("Zadejte minimum: ");
+                min = sc.nextInt();
+                System.out.println("Minimum je nyní nastaveno na: " + min);
+                break;
+            case 4:
+                System.out.print("Zadejte maximum: ");
+                max = sc.nextInt();
+                System.out.println("Maximum je nyní nastaveno na: " + max);
+                break;
             case 0:
                 System.out.println("Konec");
                 end = true;
@@ -42,10 +52,13 @@ public class BinarySearch {
     }
 
     private static void displayMenu() {
+        System.out.format("Nyní je rozsah nastaven od %d do %d. \n", min, max);
         System.out.println("Vyber: ");
-        System.out.println("1. Hádá uživatel");
-        System.out.println("2. Hádaá počítač");
-        System.out.println("0. Konec");
+        System.out.println("1. Hádá uživatel.");
+        System.out.println("2. Hádaá počítač.");
+        System.out.println("3. Volba minima.");
+        System.out.println("4. Volba maxima.");
+        System.out.println("0. Konec.");
     }
 
 }
