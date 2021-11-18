@@ -15,6 +15,8 @@ import javax.swing.plaf.synth.SynthSeparatorUI;
  */
 public class BinarySearch {
     static Scanner sc = new Scanner(System.in);
+    static int min = 1;
+    static int max = 100;
 
     public static void main(String[] args) {
         boolean end = false;
@@ -23,10 +25,10 @@ public class BinarySearch {
             int choice = sc.nextInt();
             switch (choice) {
             case 1:
-                userGuesses();
+                GuessingNumberVariants.userGuesses();
                 break;
             case 2:
-                computerGuesses();
+                GuessingNumberVariants.computerGuesses();
                 break;
             case 0:
                 System.out.println("Konec");
@@ -38,14 +40,12 @@ public class BinarySearch {
             }
         } while (!end);
     }
-    private static void computerGuesses(){
-        
-    }
-
-    private static void userGuesses() {
-    }
 
     private static void displayMenu() {
+        System.out.println("Vyber: ");
+        System.out.println("1. Hádá uživatel");
+        System.out.println("2. Hádaá počítač");
+        System.out.println("0. Konec");
     }
 
 }
