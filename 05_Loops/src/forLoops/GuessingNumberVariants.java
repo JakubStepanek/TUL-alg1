@@ -40,10 +40,9 @@ public class GuessingNumberVariants {
                 max = mid;
                 break;
             case 3:
-                System.out.println("Tvoje číslo je: "+mid);
+                System.out.println("Tvoje číslo je: " + mid);
                 guessed = true;
                 break;
-
             default:
                 System.out.println("Neplatná volba!");
                 break;
@@ -84,7 +83,7 @@ public class GuessingNumberVariants {
 
     public static void main(String[] args) {
         // System.out.println(generateRandom(10, 20));
-        //computerGuesses();
+        // computerGuesses();
 
     }
 }
