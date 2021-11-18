@@ -28,18 +28,18 @@ public class GuessingNumberVariants {
         while (!guessed) {
             int mid = (max + min) / 2;
             System.out.format("Je tvoje číslo %d ? \n", mid);
-            System.out.println("1. Moje číslo je VĚTŠÍ.");
-            System.out.println("2. Moje číslo je MENŠÍ.");
-            System.out.println("3. Je to moje číslo.");
-            int choice = BinarySearch.sc.nextInt();
+            System.out.println("+: Moje číslo je VĚTŠÍ.");
+            System.out.println("-: Moje číslo je MENŠÍ.");
+            System.out.println("=: Je to moje číslo.");
+            char choice = BinarySearch.sc.next().charAt(0);
             switch (choice) {
-            case 1:
+            case '+':
                 min = mid;
                 break;
-            case 2:
+            case '-':
                 max = mid;
                 break;
-            case 3:
+            case '=':
                 System.out.println("Tvoje číslo je: " + mid);
                 guessed = true;
                 break;
@@ -83,7 +83,7 @@ public class GuessingNumberVariants {
 
     public static void main(String[] args) {
         // System.out.println(generateRandom(10, 20));
-        // computerGuesses();
+        computerGuesses();
 
     }
 }
