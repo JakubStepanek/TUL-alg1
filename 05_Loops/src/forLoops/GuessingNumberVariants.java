@@ -42,6 +42,8 @@ public class GuessingNumberVariants {
             case '=':
                 System.out.println("Tvoje číslo je: " + mid);
                 guessed = true;
+                BinarySearch.max = 100;
+                BinarySearch.min = 1;
                 break;
             default:
                 System.out.println("Neplatná volba!");
