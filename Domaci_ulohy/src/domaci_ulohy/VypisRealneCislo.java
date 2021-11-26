@@ -14,6 +14,6 @@ public class VypisRealneCislo {
         sc.useLocale(Locale.GERMAN);
         System.out.println("zadejčíslo");
         float inputNumber = sc.nextFloat();
-        System.out.format(Locale.GERMAN, "%???????.3f", inputNumber);
+        System.out.format(Locale.GERMAN, "%10.3f", inputNumber);
     }
 }
