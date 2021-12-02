@@ -10,7 +10,7 @@ package mylibraby;
  */
 public class NumberTools {
     public static void main(String[] args) {
-        System.out.println(cos(2, 0.00001));
+        System.out.println(cos(0.45, 0.0001));
 
     }
 
@@ -41,13 +41,11 @@ public class NumberTools {
 
     public static double cos(double x, double eps) {
         double clen = 1;
-        double predchoziClen = 1;
-        double cos = 0;
+        double cos = 1;
         int first = 1;
         while (Math.abs(clen) > eps) {
-            clen = predchoziClen * (-(Math.pow(x, 2)) / (first * first + 1));
+            clen = clen * (-(Math.pow(x, 2)) / (first * first + 1));
             cos += clen;
-            predchoziClen = clen;
             first += 2;
         }
 
