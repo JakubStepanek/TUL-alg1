@@ -7,5 +7,7 @@ public class EchoText {
         String input = sc.nextLine();
 
         System.out.println(input);
+        
+       sout
         }
 }
