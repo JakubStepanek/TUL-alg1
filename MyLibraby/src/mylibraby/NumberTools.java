@@ -10,8 +10,6 @@ package mylibraby;
  */
 public class NumberTools {
     public static void main(String[] args) {
-        System.out.println(cos(1, 0.00000000001));
-        System.out.println(Math.cos(1));
     }
 
     /**
@@ -39,6 +37,14 @@ public class NumberTools {
         return true;
     }
 
+    /**
+     * Vypočítej cosinus
+     * 
+     * @param x
+     * @param eps
+     * @return
+     */
+
     public static double cos(double x, double eps) {
         double clen = 1;
         double cos = 0;
@@ -51,6 +57,13 @@ public class NumberTools {
 
         return cos;
 
+    }
+
+    public static double cos(double x) {
+        double eps = 0.001;
+        double cos = cos(x, eps);
+        return cos;
+        // return cos(x,eps); je kratší zápis =) =)
     }
 
 }
