@@ -8,6 +8,6 @@ public class EchoText {
 
         System.out.println(input);
         
-       sout
+       
         }
 }
