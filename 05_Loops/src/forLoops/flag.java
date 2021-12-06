@@ -43,7 +43,7 @@ public class flag {
                 for (int j = i + 1; j <= countOfRows; j++) {
                     System.out.print("* ");
                 }
-                for (int k = countOfColumns / 2; k <= countOfColumns + i - (countOfRows / 2 - 1); k++) {
+                for (int k = countOfColumns / 2; k < countOfColumns + i - (countOfRows / 4); k++) {
                     System.out.print("# ");
                 }
                 System.out.println();
