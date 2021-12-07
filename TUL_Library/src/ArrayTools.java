@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 /**
  * ArrayTools
  */
@@ -7,6 +9,8 @@ public class ArrayTools {
 
     /**
      * Prints array
+     * 
+     * 
      * @param array
      */
     public static void printArray(int[] array) {
@@ -15,10 +19,9 @@ public class ArrayTools {
         }
     }
 
-
-
     /**
      * Fills array from input by number from input
+     * 
      * @param array
      * @param number
      */
@@ -27,8 +30,10 @@ public class ArrayTools {
             array[i] = number;
         }
     }
+
     /**
      * Creates array by n and fills with number from input
+     * 
      * @param n
      * @param number
      * @return
@@ -41,14 +46,78 @@ public class ArrayTools {
         return b;
     }
 
-    public static void main(String[] args) {
-        int[] a = { 10, 12, 13, 15, 99 };
-        printArray(a);
+    public static int sumOfArray(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
 
-        fillWith(a, 2);
+    public static int multiplyArray(int[] array) {
+        int product = 1;
+        for (int i = 0; i < array.length; i++) {
+            product *= array[i];
+        }
+        return product;
+    }
+
+    public static int maxInArray(int[] array) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    public static int minInArray(int[] array) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return min;
+
+    }
+
+    public static int posOfFirstMax(int[] array) {
+        int max = Integer.MIN_VALUE;
+        int pos = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (max < array[i]) { // <= for last pos
+                max = array[i];
+                pos = i + 1;
+            }
+        }
+        return pos;
+    }
+
+    public static int posOfFirstMin(int[] array) {
+        int min = Integer.MAX_VALUE;
+        int pos = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]) { // >= for last pos
+                min = array[i];
+                pos = i + 1;
+            }
+        }
+        return pos;
+    }
+
+
+    public static void main(String[] args) {
+        int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
         printArray(a);
-        System.out.println("");
-        printArray(fillWith(10, 5));
+        System.out.println();
+        System.out.println(sumOfArray(a));
+        System.out.println(multiplyArray(a));
+        System.out.println(maxInArray(a));
+        System.out.println(minInArray(a));
+        System.out.println(posOfFirstMax(a));
+        System.out.println(posOfFirstMin(a));
 
     }
 }
