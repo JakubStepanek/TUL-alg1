@@ -1,7 +1,3 @@
-import java.util.Arrays;
-
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 /**
  * ArrayTools
  */
