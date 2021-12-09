@@ -103,20 +103,21 @@ public class ArrayTools {
 
     public static int posOfFirstMin(int[] array) {
         int min = Integer.MAX_VALUE;
-        int pos = 0;
-        for (int i = 0; i < array.length; i++) {
+        int i;
+        for (i = 0; i < array.length; i++) {
             if (min > array[i]) { // >= for last pos
                 min = array[i];
-                pos = i + 1;
+                return i++;
             }
         }
-        return pos;
+        return i + 1;
     }
 
     public static void main(String[] args) {
-        //int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
-        //printArray(a);
+        int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
+
         int[] c = { 200, -50, 30 };
         printArray(kumSum(c));
+        System.out.println(posOfFirstMin(c));
     }
 }
