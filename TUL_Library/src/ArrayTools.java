@@ -62,6 +62,16 @@ public class ArrayTools {
         return product;
     }
 
+    public static int[] kumSum(int[] array) {
+        int[] b = new int[array.length];
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+            b[i] = sum;
+        }
+        return b;
+    }
+
     public static int maxInArray(int[] array) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < array.length; i++) {
@@ -107,17 +117,10 @@ public class ArrayTools {
         return pos;
     }
 
-
     public static void main(String[] args) {
-        int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
-        printArray(a);
-        System.out.println();
-        System.out.println(sumOfArray(a));
-        System.out.println(multiplyArray(a));
-        System.out.println(maxInArray(a));
-        System.out.println(minInArray(a));
-        System.out.println(posOfFirstMax(a));
-        System.out.println(posOfFirstMin(a));
-
+        //int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
+        //printArray(a);
+        int[] c = { 200, -50, 30 };
+        printArray(kumSum(c));
     }
 }
