@@ -106,18 +106,47 @@ public class ArrayTools {
         int i;
         for (i = 0; i < array.length; i++) {
             if (min > array[i]) { // >= for last pos
-                min = array[i];
-                return i++;
+                return i;
             }
         }
         return i + 1;
     }
 
-    public static void main(String[] args) {
-        int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
+    public static int lastValue(int[] array, int number) {
+        for (int i = array.length - 1; i >= 0; i--) {
+            return i;
+        }
+        return -1;
+    }
 
-        int[] c = { 200, -50, 30 };
-        printArray(kumSum(c));
-        System.out.println(posOfFirstMin(c));
+    public static void reverse(int[] array) {
+        int n;
+        for (int i = 0; i < array.length / 2; i++) {
+            n = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = n;
+        }
+    }
+
+    public static int[] reverseArray(int[] array) {
+        int[] n = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            n[i] = array[array.length - 1 - i];
+        }
+        return n;
+    }
+
+    public static void main(String[] args) {
+        // int[] a = { 1, 2, 3, 5, -1, -1, -1, -1, -1, -1, -1 };
+
+        // int[] c = { 200, -50, 30 };
+        // printArray(kumSum(c));
+        // System.out.println(posOfFirstMin(c));
+
+        // int[] x = { 1, 2, 3, 4 };
+        // reverse(x);
+        // printArray(x);
+        // System.out.println();
+        // printArray(reverseArray(x));
     }
 }
