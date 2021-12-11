@@ -1,21 +1,34 @@
-
 package domaci_ulohy;
 
 import java.util.Scanner;
 
-import org.w3c.dom.xpath.XPathNSResolver;
-
 public class BarvaPole {
     public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+            String color;
+            while (sc.hasNextInt()) {
+            int x = sc.nextInt();
+                if (x < 0) {
+                    break;
+                } else {
+            int y = sc.nextInt();
+                   if ((x % 2 == 0)) {
+                        if (y % 2 == 0) {
+                            color = "BILA";
+                        } else {
+                            color = "CERNA";
+                        }
+                    } else {
+                        if (y % 2 == 0) {
+                            color = "CERNA";
+                        } else {
+                            color = "BILA";
+                        }
 
-        Scanner sc = new Scanner(System.in);
-        int xPos, yPos;
-        while (((xPos = sc.nextInt()) >= 0) || (yPos = sc.nextInt()) >= 0) {
-            xPos = sc.nextInt();
-            yPos = sc.nextInt();
-            String answer = ((xPos % 2 == 0) ? ((yPos % 2 == 0) ? "BILA" : "CERNA")
-                    : (yPos % 2 == 0) ? "CERNA" : "BILA");
-            System.out.println(answer);
+                    }
+                    System.out.println(color);
+                }
+            }
         }
     }
 

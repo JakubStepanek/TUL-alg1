@@ -1,25 +1,39 @@
 package domaci_ulohy;
 
+import java.math.BigInteger;
+import java.util.Scanner;
+
 public class DelitelNasobek {
-    
-    public static void main (String[] args) {
-       
-        int number = 12;
-        String factor = "1";
 
-        // CODE
-        int i = 2;
-        while (i <= (number/2)) {
-            
-            if ((number % i) == 0) {
-                factor = String.format("%s, %d", factor, i);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int divisor = 1, lcm = 1;
+        int a, b, aLCM, bLCM;
+
+        while (sc.hasNextInt()) {
+            a = sc.nextInt();
+            if (a > 0) {
+                b = sc.nextInt();
+                lcm = (a > b) ? a : b;
+                aLCM = a;
+                bLCM = b;
+                for (int i = 1; i <= a && i <= b; i++) {
+                    if (a % i == 0 && b % i == 0)
+                        divisor = i;
+                }
+            } else {
+                break;
             }
-            i++;
-        }
-        factor = String.format("%s, %d", factor, number);
+            System.out.print(divisor + " ");
+            while (true) {
+                if (lcm % a == 0 && lcm % b == 0) {
+                    break;
+                } else {
+                    lcm++;
+                }
+            }
+            System.out.println(lcm);
 
-        // OUT
-        System.out.println(factor);
-        
+        }
     }
 }
