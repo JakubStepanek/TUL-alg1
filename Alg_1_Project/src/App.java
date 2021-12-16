@@ -1,18 +1,18 @@
 
-import java.io.Console;
-import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import javax.swing.plaf.synth.SynthSeparatorUI;
-import javax.swing.plaf.synth.SynthSplitPaneUI;
 
 public class App {
     static public Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
+        // test();
         showMenu();
     }
 
+    /**
+     * @JakubStepanek
+     *                Method for testing in development
+     */
     private static void test() {
         // int N = 7;
         // drawFish(N);
@@ -22,6 +22,11 @@ public class App {
 
     }
 
+    /**
+     * @JakubStepanek
+     *                Displays menu, where user choose either he wants to show
+     *                Christmas event or seminárka
+     */
     private static void showMenu() {
         System.out.println("Pick one: ");
         System.out.println("1. Christmass event");
@@ -39,6 +44,11 @@ public class App {
                 break;
         }
     }
+
+    /**
+     * @JakubStepanek
+     * @return if user does eat fish
+     */
 
     public static boolean christmasEvent() {
         System.out.println("Christmas time has begun.");
@@ -67,6 +77,12 @@ public class App {
         return (eatsFish);
     }
 
+    /**
+     * @JakubStepanek
+     * @return number that defines size of new fish
+     *         user answer question which date is and then switch{} gives bach "size
+     *         of fish"
+     */
     public static int findDate() {
         int size = 0;
         boolean end = false;
@@ -143,6 +159,13 @@ public class App {
         return (size);
     }
 
+    /**
+     * @JakubStepanek
+     * @param eatsFish
+     * @param size
+     *                 if user eats fish and date is bigger than 24 shows dead fish
+     *                 else shows
+     */
     public static void chooseFish(boolean eatsFish, int size) {
         if (eatsFish) {
             if (size <= 12) {
@@ -155,6 +178,11 @@ public class App {
         }
     }
 
+    /**
+     * @JakubStepanek
+     * @param size
+     *             draws fish by size from findDate()
+     */
     public static void drawFish(int size) {
         String spacesOUT = "", spacesIN = "", spacesINtemp = "", spacesTailLOVER = "", stars1 = "*", stars2 = "*";
         int tailSize = size - 1;
