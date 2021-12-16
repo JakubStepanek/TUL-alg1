@@ -5,7 +5,7 @@ public class App {
     static public Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        // test();
+        // test();1
         showMenu();
     }
 
