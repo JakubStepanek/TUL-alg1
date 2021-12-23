@@ -1,8 +1,6 @@
-import java.rmi.ConnectIOException;
+package domaci_ulohy;
 import java.util.Scanner;
 
-import javax.print.attribute.standard.NumberOfInterveningJobs;
-import javax.swing.JSpinner.NumberEditor;
 
 public class Pocet {
 

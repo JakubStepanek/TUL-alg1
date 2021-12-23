@@ -1,3 +1,4 @@
+package domaci_ulohy;
 import java.util.Scanner;
 
 
