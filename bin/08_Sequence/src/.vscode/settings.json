@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/kubin/Documents/Java/alg1/MyLibraby/dist/MyLibraby.jar"
+    ]
+}
