@@ -6,7 +6,7 @@ public class DrawFish {
 
     public static void main(String[] args) throws Exception {
         // test();1
-        showMenu();
+        chooseFish(christmasEvent(), findDate());
     }
 
     /**
@@ -20,29 +20,6 @@ public class DrawFish {
         // printText();
         // System.out.println(findDate());
 
-    }
-
-    /**
-     * @JakubStepanek
-     *                Displays menu, where user choose either he wants to show
-     *                Christmas event or seminárka
-     */
-    private static void showMenu() {
-        System.out.println("Pick one: ");
-        System.out.println("1. Christmass event");
-        System.out.println("Push ENTER for exit");
-        System.out.print("Option: ");
-        String input = sc.nextLine();
-        switch (input) {
-            case "1":
-                chooseFish(christmasEvent(), findDate());
-            case "2":
-                //SEMINARKA
-                break;
-
-            default:
-                break;
-        }
     }
 
     /**
