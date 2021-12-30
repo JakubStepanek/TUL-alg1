@@ -1,4 +1,3 @@
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,6 +18,13 @@ public class App {
 
     public static void main(String[] args) {
         // test();
+        showMenu();
+    }
+/**
+ * Start menu for the program
+ * @JakubStepanek
+ */
+    public static void showMenu() {
         boolean end = false;
         String answer;
         do {
@@ -50,6 +56,14 @@ public class App {
         } while (!end);
     }
 
+    /**
+     * From input paramaters checks if pattern is subarray of source
+     * 
+     * @JakubStepanek
+     * @param source
+     * @param pattern
+     * @return
+     */
     private static int findSequence(Integer[] source, Integer[] pattern) {
         if (source.length < pattern.length) {
             // "-1" stands for no sequence
@@ -58,6 +72,12 @@ public class App {
         return Collections.indexOfSubList(Arrays.asList(source), Arrays.asList(pattern));
     }
 
+    /**
+     * Loads and storage all numbers from Scanner
+     * 
+     * @JakubStepanek
+     * @return
+     */
     public static Integer[] loadSequence() {
         // ArrayList do not need to have size parameter on create
         ArrayList<Integer> orderList = new ArrayList<>();
@@ -83,11 +103,13 @@ public class App {
 
         return order;
     }
-/**
- * 
- * @JakubStepanek
- * @param array
- */
+
+    /**
+     * Prints array from parameter to console
+     * 
+     * @JakubStepanek
+     * @param array
+     */
     public static void printArray(Integer[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
