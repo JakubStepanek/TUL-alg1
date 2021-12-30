@@ -37,7 +37,7 @@ public class DrawFish {
             case "1":
                 chooseFish(christmasEvent(), findDate());
             case "2":
-                // SEMINARKA
+                //SEMINARKA
                 break;
 
             default:

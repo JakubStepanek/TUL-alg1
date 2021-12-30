@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,10 +33,12 @@ public class App {
                     int pozition = findSequence(source, pattern);
                     if (pozition >= 0) {
                         System.out.format("Sekvence nalezena na pozici %d\n", pozition);
+                        System.out.println();
                     } else {
-                        System.out.println("Sekvence nenalezena");
+                        System.out.println("Sekvence nenalezena\n");
                     }
-
+                    // clear scanner buffer
+                    sc.nextLine();
                     break;
                 case "n":
                     end = true;
@@ -49,25 +52,42 @@ public class App {
 
     private static int findSequence(Integer[] source, Integer[] pattern) {
         if (source.length < pattern.length) {
+            // "-1" stands for no sequence
             return -1;
         }
         return Collections.indexOfSubList(Arrays.asList(source), Arrays.asList(pattern));
     }
 
     public static Integer[] loadSequence() {
+        // ArrayList do not need to have size parameter on create
         ArrayList<Integer> orderList = new ArrayList<>();
-        int number;
+        int number = 0;
+
         do {
+            // validation when user input is not a number
+            while (!sc.hasNextInt()) {
+                System.out.println(ConsoleColors.RED + "Zadavejte pouze cela cisla!" + ConsoleColors.RESET);
+                sc.next();
+            }
+            // fill ArrayList with input numbers
             number = sc.nextInt();
             orderList.add(number);
         } while (number > -1);
-        int index = orderList.size() - 1;
-        orderList.remove(index);
+
+        int lastPos = orderList.size() - 1;
+        orderList.remove(lastPos);
+        // create new Array of integers with size of ArrayList
         Integer[] order = new Integer[orderList.size()];
+        // copy values of ArrayList to the Array via toArray method
         order = orderList.toArray(order);
+
         return order;
     }
-
+/**
+ * 
+ * @JakubStepanek
+ * @param array
+ */
     public static void printArray(Integer[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
