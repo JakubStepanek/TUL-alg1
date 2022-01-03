@@ -19,7 +19,7 @@ public class App {
                     multiply();
                     break;
                 case 3:
-                    //norm();
+                    //();
                     break;
                 case 0:
                     end = true;
