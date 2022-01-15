@@ -112,7 +112,7 @@ public class FindPatternInSequence {
     public static void userOutput(int[] source, int[] pattern) {
         int position = findSequence(source, pattern);
         if (position >= 0) {
-            System.out.format("Sekvence nalezena na pozici %d\n", position + 1);
+            System.out.format("Sekvence nalezena na pozici %d%n", position + 1);
             // method.findSequence gives back index not position
             System.out.println();
         } else if (position == -10) {
