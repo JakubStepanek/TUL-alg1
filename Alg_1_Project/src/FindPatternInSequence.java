@@ -4,7 +4,7 @@ import java.util.Scanner;
  * 3. Program finds given pattern in given sequence
  * 
  * @author JakubStepanek
- * @version 1.5.2 01/14/21
+ * @version 1.5.2 01/23/21
  */
 public class FindPatternInSequence {
     public static Scanner sc = new Scanner(System.in);
@@ -25,7 +25,7 @@ public class FindPatternInSequence {
 
     public static void main(String[] args) {
         // test();
-        startMenu();
+        startProgram();
     }
 
     /**
@@ -33,7 +33,7 @@ public class FindPatternInSequence {
      * 
      * @JakubStepanek
      */
-    public static void startMenu() {
+    public static void startProgram() {
         boolean end = false;
         String key = "a";
         do {
@@ -60,7 +60,46 @@ public class FindPatternInSequence {
     }
 
     /**
-     * From input paramaters checks if pattern is subarray of source
+     * Loads and storage all numbers from Scanner. This method returns the loaded sequence as an array.
+     * 
+     * @JakubStepanek
+     * @return
+     */
+    public static int[] loadSequence() {
+        //starting sequence is 5 size
+        int[] sequence = new int[5];
+        int number, countOfInerations = 0;
+        do {
+            do {
+                // input validation
+                while (!sc.hasNextInt()) {
+                    System.out.println(ConsoleColors.RED + "Zadavejte pouze cela cisla!" + ConsoleColors.RESET);
+                    System.out.println("Zatim nactena sekvence: ");
+                    printArray(sequence, countOfInerations);
+                    sc.nextLine();
+                }
+                // resizeable array
+                if (countOfInerations == sequence.length - 2) {
+                    sequence = realocateArray(sequence);
+                }
+                number = sc.nextInt();
+                // eliminate last element of array
+                if (number > -1) {
+                    sequence[countOfInerations] = number;
+                }
+                countOfInerations++;
+            } while (number > -1);
+        } while (sequence.length == 0);
+        // create new array of user input size and copy elements from method array into
+        int[] outputSequence = new int[countOfInerations - 1];
+        for (int j = 0; j < outputSequence.length; j++) {
+            outputSequence[j] = sequence[j];
+        }
+        return outputSequence;
+    }
+
+    /**
+     * Method checks two input array and finds if second (pattern) array is included in first (source) array
      * 
      * @JakubStepanek
      * @param source
@@ -103,7 +142,7 @@ public class FindPatternInSequence {
     }
 
     /**
-     * Method prints if there is pattern in sequence or not
+     * Method prints output if there is pattern in sequence or not
      * 
      * @author JakubStepanek
      * @param source
@@ -127,42 +166,10 @@ public class FindPatternInSequence {
     }
 
     /**
-     * Loads and storage all numbers from Scanner
-     * 
-     * @JakubStepanek
+     * Method gets array from input and creates new one which is given back
+     * @param array
      * @return
      */
-    public static int[] loadSequence() {
-        int[] sequence = new int[5];
-        int number, i = 0;
-        do {
-            do {
-                // input validation
-                while (!sc.hasNextInt()) {
-                    System.out.println(ConsoleColors.RED + "Zadavejte pouze cela cisla!" + ConsoleColors.RESET);
-                    System.out.println("Zatim nactena sekvence: ");
-                    printArray(sequence);
-                    sc.nextLine();
-                }
-                // resizeable array
-                if (i == sequence.length - 2) {
-                    sequence = realocateArray(sequence);
-                }
-                number = sc.nextInt();
-                // eliminate last element of array
-                if (number > -1) {
-                    sequence[i] = number;
-                }
-                i++;
-            } while (number > -1);
-        } while (sequence.length == 0);
-        // create new array of user input size and copy elements from method array into
-        int[] outputSequence = new int[i - 1];
-        for (int j = 0; j < outputSequence.length; j++) {
-            outputSequence[j] = sequence[j];
-        }
-        return outputSequence;
-    }
 
     public static int[] realocateArray(int[] array) {
         int[] biggerArray = new int[array.length * 2];
@@ -176,15 +183,11 @@ public class FindPatternInSequence {
      * Method for print array edited for not showing zeros on the end
      * 
      * @param array
+     * @param size
      */
-    public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == 0 && array[i + 1] == 0) {
-                for (int j = 0; j < i; j++) {
-                    System.out.print(array[j] + " ");
-                }
-                break;
-            }
+    public static void printArray(int[] array, int size) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 }

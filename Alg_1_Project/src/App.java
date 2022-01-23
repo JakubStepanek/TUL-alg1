@@ -14,7 +14,7 @@ public class App {
                     showMenu();
                     break;
                 case "2":
-                    FindPatternInSequence.startMenu();
+                    FindPatternInSequence.startProgram();
                     showMenu();
                     break;
                 case "0":
