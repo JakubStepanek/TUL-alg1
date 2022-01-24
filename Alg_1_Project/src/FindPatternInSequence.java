@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * 3. Program finds given pattern in given sequence
- * 
+ *
  * @author JakubStepanek
  * @version 1.5.2 01/23/21
  */
@@ -21,6 +21,9 @@ public class FindPatternInSequence {
         // System.out.println("Sekvence nenalezena");
         // }
         // printArray(loadSequence());
+        // int[] source = { 1, 2, 3, 4, 5 };
+        // int[] pattern = { 4 };
+        // findSequence(source, pattern);
     }
 
     public static void main(String[] args) {
@@ -30,7 +33,7 @@ public class FindPatternInSequence {
 
     /**
      * Start menu for the program calls methods for loading array from user
-     * 
+     *
      * @JakubStepanek
      */
     public static void startProgram() {
@@ -60,13 +63,14 @@ public class FindPatternInSequence {
     }
 
     /**
-     * Loads and storage all numbers from Scanner. This method returns the loaded sequence as an array.
-     * 
+     * Loads and storage all numbers from Scanner. This method returns the loaded
+     * sequence as an array.
+     *
      * @JakubStepanek
      * @return
      */
     public static int[] loadSequence() {
-        //starting sequence is 5 size
+        // starting sequence is 5 size
         int[] sequence = new int[5];
         int number, countOfInerations = 0;
         do {
@@ -99,8 +103,9 @@ public class FindPatternInSequence {
     }
 
     /**
-     * Method checks two input array and finds if second (pattern) array is included in first (source) array
-     * 
+     * Method checks two input array and finds if second (pattern) array is included
+     * in first (source) array
+     *
      * @JakubStepanek
      * @param source
      * @param pattern
@@ -115,26 +120,36 @@ public class FindPatternInSequence {
         if (source.length == 0 && pattern.length == 0) {
             return 0;
         }
-        int limit = source.length - pattern.length;
-        if (limit == source.length - 1) {
-            return source.length - 1;
+        int limit;
+        if (source.length - pattern.length == 0) {
+            limit = source.length;
+        } else {
+            limit = source.length - pattern.length;
         }
-        if (limit <= 1) {
-            if (pattern[0] == source[0]) {
-                return 0;
+
+        // if user tries to find sequence of size 1
+        if (limit == source.length - 1) {
+            for (int i = 0; i < source.length; i++) {
+                if (source[i] == pattern[0]) {
+                    return i;
+                }
             }
         }
-        for (int i = 0; i <= limit; i++) {
+
+        boolean subArrayFound = false;
+        for (int i = 0; i < limit; i++) {
             if (pattern[0] == source[i]) {
-                boolean subArrayFound = true;
-                for (int j = 1; j <= pattern.length; j++) {
-                    if (pattern[j] != source[i + j]) {
+                subArrayFound = true;
+                for (int j = 1; j < pattern.length; j++) {
+                    System.err.println(source[i + j]);
+                    System.out.println(pattern[j]);
+                    if (source[i + j] != pattern[j]) {
                         subArrayFound = false;
                         break;
                     }
-                    if (subArrayFound) {
-                        return i;
-                    }
+                }
+                if (subArrayFound) {
+                    return i;
                 }
             }
         }
@@ -143,7 +158,7 @@ public class FindPatternInSequence {
 
     /**
      * Method prints output if there is pattern in sequence or not
-     * 
+     *
      * @author JakubStepanek
      * @param source
      * @param pattern
@@ -167,6 +182,7 @@ public class FindPatternInSequence {
 
     /**
      * Method gets array from input and creates new one which is given back
+     *
      * @param array
      * @return
      */
@@ -181,7 +197,7 @@ public class FindPatternInSequence {
 
     /**
      * Method for print array edited for not showing zeros on the end
-     * 
+     *
      * @param array
      * @param size
      */
